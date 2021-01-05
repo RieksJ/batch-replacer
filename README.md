@@ -71,6 +71,27 @@ The `replace-regex` instruction also allows to:
     with "Label\tAmount"
     ```
 
+### Converting case
+
+Rather than replace the text, we can also convert its case, by by using `with-case` instead of `with`. You can convert text to UPPERCASE:
+```c
+// Input:
+//     We use Keywords 'must' and 'should' as in RFC 2119
+// Output
+//     We use Keywords 'MUST' and 'SHOULD' as in RFC 2119
+replace-regex "'[^']*?'"
+with-case "uppercase"
+```
+or to lowercase:
+```c
+// Input:
+//     We use Keywords 'MUST' and 'SHOULD' as in RFC 2119
+// Output
+//     We use Keywords 'must' and 'should' as in rfc 2119
+replace-regex "'[^']*?'"
+with-case "lowercase"
+```
+
 ### Escaping characters
 
 Unlike in most programming languages, **quotes** and **slashes** in the values of `replace` and `with` instructions
